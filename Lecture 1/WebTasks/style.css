@@ -1,0 +1,41 @@
+body 
+{
+  font-family:Open Sans;
+}
+
+h1, h2 
+{
+  color: red
+}
+
+#bigText 
+{
+	text-align:center;
+	text-transform: uppercase;
+	text-size:36px;
+}
+div.list
+{
+	width: 48%; 
+	float:left; 
+	background:#e6f5ff; 
+	margin:10px; 
+	padding-left: 15px;
+}
+div.container
+{
+	height: 700px; 
+	border: 2px solid #73AD21;
+}
+hr
+{
+	color:#73AD21;	
+}
+ol
+{
+	color:green;
+}
+a
+{
+	color:gray;
+}
