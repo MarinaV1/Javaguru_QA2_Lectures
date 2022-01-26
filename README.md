@@ -1,1 +1,1 @@
-# Javaguru_QA2_Lectures
+# Javaguru- QA2 -Lecture material
