@@ -2,6 +2,7 @@ package lecture5;
 
 import java.util.Scanner;
 
+
 public class BallGameDemo {
 
     public static void main(String[] args) {
