@@ -1,52 +1,45 @@
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+package lecture6;
+
+
+import org.assertj.core.api.SoftAssertions;
+import org.assertj.core.data.Percentage;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+
 public class MovieTest {
 
-    //        Create movie object
-    Movie movie = new Movie();
+    Movies movies = new Movies();
 
-
-    public void printAll() {
-        //        Get all information from movies
-        System.out.println("Movie Name " + movie.getMovieName());
-        System.out.println("Movie Director " + movie.getMovieDirector());
-        System.out.println("Movie Genre " + movie.getMovieGenre());
-        System.out.println("Movie Year " + movie.getYear());
-        System.out.println("Movie Box Office " + movie.getBoxOffice());
-        System.out.println("Movie Budget " + movie.getBudget());
-    }
-
-    @Before
+    @BeforeEach
     public void setUp() {
-        printAll();
-        //        Set Parameters
-        movie.setMovieName("Rocketman");
-        movie.setMovieDirector("Dexter Fletcher");
-        movie.setMovieGenre("Musical/Drama");
-        movie.setYear(2019);
-        movie.setBoxOffice(195000000);
-        movie.setBudget(41000000);
+        movies.setMovieName("Rocketman");
+        movies.setDirector("Dexter Fletcher");
+        movies.setGenre("Musical/Drama");
+        movies.setYear(2019);
+        movies.setBoxOffice(195000000);
+        movies.setBudget(41000000);
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
-        movie = null;
+        movies = null;
     }
 
     @Test
-    public void firstTest() {
-        printAll();
-//      Adding assertions
-        assertThat(movie.getMovieName()).isEqualTo("Rocketman");
-        assertThat(movie.getMovieDirector()).isNotEmpty();
-        assertThat(movie.getMovieGenre()).contains("Musical");
-        assertThat(movie.getMovieGenre()).contains("Drama");
-        assertThat(movie.getYear()).isLessThan(2022);
-        int expectedBoxOffice = movie.getBudget() * 2;
-        assertThat(movie.getBoxOffice()).isGreaterThan(expectedBoxOffice);
+    public void test1ForMovie() {
+        SoftAssertions softAssertions = new SoftAssertions();
+        softAssertions.assertThat(movies.getMovieName()).isEqualTo("Rocketman");
+        softAssertions.assertThat(movies.getDirector()).isEqualTo("Dexter Fletcher");
+        softAssertions.assertThat(movies.getGenre()).isEqualTo("Musical/Drama");
+        softAssertions.assertThat(movies.getYear()).isBetween(2019, 2022);
+        softAssertions.assertThat(movies.getBoxOffice()).isCloseTo(200000000, Percentage.withPercentage(10));
+        softAssertions.assertThat(movies.getBudget()).isGreaterThan(40000000);
+        softAssertions.assertAll();
     }
+
+
 }

@@ -1,4 +1,6 @@
-public class Movie {
+package lecture6;
+
+public class Movies {
 
     public String getMovieName() {
         return movieName;
@@ -8,20 +10,20 @@ public class Movie {
         this.movieName = movieName;
     }
 
-    public String getMovieDirector() {
-        return movieDirector;
+    public String getDirector() {
+        return director;
     }
 
-    public void setMovieDirector(String movieDirector) {
-        this.movieDirector = movieDirector;
+    public void setDirector(String director) {
+        this.director = director;
     }
 
-    public String getMovieGenre() {
-        return movieGenre;
+    public String getGenre() {
+        return genre;
     }
 
-    public void setMovieGenre(String movieGenre) {
-        this.movieGenre = movieGenre;
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 
     public int getYear() {
@@ -49,9 +51,11 @@ public class Movie {
     }
 
     private String movieName;
-    private String movieDirector;
-    private String movieGenre;
+    private String director;
+    private String genre;
     private int year;
     private int boxOffice;
     private int budget;
+
+
 }
